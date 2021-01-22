@@ -4,7 +4,7 @@ from bullet import Bullet
 from time import sleep
 
 #eventos 
-def check_events(ai_settings, screen, stats, play_button ,ship, aliens, bullets):
+def check_events(ai_settings, screen, stats, sb, play_button ,ship, aliens, bullets):
     """checa os eventos"""
     for event in pygame.event.get():
         #Fecha a janela 
@@ -19,7 +19,7 @@ def check_events(ai_settings, screen, stats, play_button ,ship, aliens, bullets)
         
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
-            check_play_button(ai_settings, screen, stats, play_button, mouse_x, mouse_y, ship, aliens, bullets)
+            check_play_button(ai_settings, screen, stats, sb, play_button, mouse_x, mouse_y, ship, aliens, bullets)
 
 #Eventos de Tecla 
 def Events_keydown(event, ai_settings, screen, ship, bullets):
@@ -50,7 +50,7 @@ def Events_keyup(event, ship):
         ship.moving_down = False
 
 #Eventos do mouse
-def check_play_button(ai_settings, screen , stats, play_button, mouse_x, mouse_y, ship, aliens, bullets):
+def check_play_button(ai_settings, screen, stats, sb, play_button, mouse_x, mouse_y, ship, aliens, bullets):
     """Verifica eventos do mouse"""
     #armazena a colisão do mouse com o botão player
     button_click = play_button.rect.collidepoint(mouse_x, mouse_y)
@@ -59,6 +59,9 @@ def check_play_button(ai_settings, screen , stats, play_button, mouse_x, mouse_y
         pygame.mouse.set_visible(False)
         stats.reset_stats()
         stats.game_active = True 
+        sb.prep_score()
+        sb.prep_high_score()
+        sb.prep_level()
         bullets.empty()
         aliens.empty()
         create_fleet(ai_settings, screen, ship, aliens)
@@ -119,7 +122,7 @@ def update_aliens(ai_settings, stats, screen,  ship,  aliens, bullets):
     check_aliens_collide_bottom(ai_settings, stats, screen, ship, aliens, bullets)
 
 #Disparos 
-def fire_bullets(ai_settings ,screen ,ship ,bullets ):
+def fire_bullets(ai_settings ,screen ,ship ,bullets ):          
     """cria a sequencia de disparos"""
     if len(bullets) < ai_settings.bullet_allowed:
         new_bullet = Bullet(ai_settings, screen, ship)
@@ -147,8 +150,10 @@ def check_bullets_aliens_collisions(ai_settings, screen, stats, sb, ship, aliens
             sb.prep_score()
             check_high_score(stats, sb)
     elif len(aliens) == 0:
-        #remove os projeteis restantes na tela  e cria uma nova frota de aliens
+        #remove os projeteis restantes na tela, aumenta o level   e cria uma nova frota de aliens
         bullets.empty()
+        stats.level += 1
+        sb.prep_level()
         create_fleet(ai_settings, screen, ship, aliens)
         ai_settings.increase_speed()
         

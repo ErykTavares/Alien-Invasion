@@ -5,7 +5,7 @@ class Ship:
     def __init__(self,ai_settings, screen):
         self.screen = screen
         self.ai_settings = ai_settings
-        self.image = pygame.image.load(r"Projects\Alien-Invasion-\alien-\alien_atack\images\ship_1.png")
+        self.image = pygame.image.load(r"alien_atack\images\ship.png")
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect() 
         self.rect.centerx = self.screen_rect.centerx 

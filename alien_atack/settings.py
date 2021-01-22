@@ -7,8 +7,9 @@ class Settings:
         #screen configs
         self.screen_width = 1000
         self.screen_height = 700
-        self.bg_color = pygame.image.load(r"Projects\Alien-Invasion-\alien-\alien_atack\images\space.png")
+        self.bg_color = pygame.image.load(r"alien_atack\images\space.png")
         self.fps = 60
+        self.game_icon = pygame.image.load(r"alien_atack\images\alien_icon.png")
         
         self.dynamic_configs()
         self.ship_limit = 3

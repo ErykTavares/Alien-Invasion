@@ -8,7 +8,6 @@ class ScoreBoard():
         self.screen_rect = screen.get_rect()
         self.stats = stats
         
-        self.text_color = (34, 139, 34)
         self.font = pygame.font.SysFont(None, 48)
     
         self.prep_score()
@@ -18,9 +17,11 @@ class ScoreBoard():
     
     def prep_score(self):
         """Trasforma a pontuação em uma imagem"""
+        self.score_color = (140, 7, 7)
         round_score = round(self.stats.score, -1)
         score = f"{round_score:,}"
-        self.score_image = self.font.render(score, True, self.text_color, None)
+        
+        self.score_image = self.font.render(score, True,self.score_color , None)
 
         self.score_rect = self.score_image.get_rect()
         self.score_rect.right = self.screen_rect.right - 20
@@ -29,9 +30,10 @@ class ScoreBoard():
 
     def prep_high_score(self):
         """Transforma a pontuação maxima em uma imagem"""
+        self.highscore_color = (0, 99, 14 )
         round_high_score = round(self.stats.high_score, -1)
         high_score = f"{round_high_score:,}"
-        self.high_score_image = self.font.render(high_score, True, self.text_color, None)
+        self.high_score_image = self.font.render(high_score, True,self.highscore_color, None)
 
         self.high_score_rect = self.high_score_image.get_rect()
         self.high_score_rect.centerx = self.screen_rect.centerx
@@ -40,10 +42,11 @@ class ScoreBoard():
 
     def prep_level(self):
         """Trasforma o level em uma imagem renderizada"""
-        self.level_image = self.font.render(self.stats.level, True, self.text_color, None)
+        self.level_color = (11, 22 , 162)
+        self.level_image = self.font.render(str(self.stats.level), True,self.level_color, None)
         self.level_rect = self.level_image.get_rect()
         self.level_rect.right = self.score_rect.right
-        self.level_rect.top = +10
+        self.level_rect.top = 60
 
 
     def show_score(self):
