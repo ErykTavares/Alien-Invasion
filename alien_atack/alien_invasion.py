@@ -41,7 +41,7 @@ while True:
         #atualiza os projeteis
         gf.update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets)
         #atualiza a frota
-        gf.update_aliens(ai_settings, stats, screen,  ship,  aliens, bullets)
+        gf.update_aliens(ai_settings, stats, sb, screen,  ship,  aliens, bullets)
     
     #verifica os eventos do game
     gf.check_events(ai_settings, screen, stats, sb, play_button, ship, aliens, bullets)
