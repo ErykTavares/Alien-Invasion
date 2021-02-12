@@ -189,7 +189,7 @@ def check_high_score(stats, sb):
         stats.high_score = stats.score 
         sb.prep_high_score()
         #salva a pontução maxima no arquivo .txt
-        with open("alien_atack\high_score.txt", "w") as high_score:
+        with open(r"high_score.txt", "w") as high_score:
             high_score.write(str(stats.high_score))
 
 

@@ -50,3 +50,5 @@ while True:
     #v-sync
     fps.tick(ai_settings.fps)
     run_game()
+
+# copyright FideumaEgua © 2021

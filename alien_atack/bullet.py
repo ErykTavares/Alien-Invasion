@@ -6,7 +6,7 @@ class Bullet(Sprite):
     def __init__(self, ai_settings, screen, ship):
         super(Bullet, self).__init__()
         self.screen = screen
-        self.image = pygame.image.load(r"alien_atack\images\missil.png")
+        self.image = pygame.image.load(r"images\missil.png")
         self.rect = self.image.get_rect()
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top

@@ -16,7 +16,7 @@ class GameStats():
     
     def load_high_score(self):
         """Carrega a pontuação maxima"""
-        with open("alien_atack\high_score.txt", "r") as hscore:
+        with open(r"high_score.txt", "r") as hscore:
             for line in hscore:
                 self.high_score = int(line)
 
