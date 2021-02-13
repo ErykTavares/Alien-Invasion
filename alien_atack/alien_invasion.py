@@ -51,4 +51,4 @@ while True:
     fps.tick(ai_settings.fps)
     run_game()
 
-# copyright FideumaEgua © 2021
+# copyright ErykTavares © 2020-2021

@@ -38,3 +38,5 @@ class Settings:
             self.bullet_allowed += 1
         elif self.alien_speed_factor == 10:
             self.bullet_allowed += 1
+
+# copyright ErykTavares © 2020-2021

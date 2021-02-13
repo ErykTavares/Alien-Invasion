@@ -42,3 +42,4 @@ class Ship(Sprite):
         """desenha a nave na tela""" 
         self.screen.blit(self.image, self.rect)
 
+# copyright ErykTavares © 2020-2021

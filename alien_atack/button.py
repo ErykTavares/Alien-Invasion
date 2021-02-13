@@ -27,3 +27,5 @@ class Button():
         """Desenha o texto e o botão na tela"""
         self.screen.fill(self.buttom_color, self.rect)
         self.screen.blit(self.msg_image, self.msg_image_rect)
+
+# copyright ErykTavares © 2020-2021

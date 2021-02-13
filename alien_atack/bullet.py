@@ -22,3 +22,5 @@ class Bullet(Sprite):
     def draw_bullet(self):
         """Desenha o bullet na tela"""
         self.screen.blit(self.image, self.rect)
+
+# copyright ErykTavares © 2020-2021

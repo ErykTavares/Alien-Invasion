@@ -20,5 +20,4 @@ class GameStats():
             for line in hscore:
                 self.high_score = int(line)
 
-    
-    
+# copyright ErykTavares © 2020-2021

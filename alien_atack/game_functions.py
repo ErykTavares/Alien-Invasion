@@ -205,3 +205,5 @@ def Update_screen(ai_settings, stats, sb, screen, ship, aliens, bullets, play_bu
     if not stats.game_active:
         play_button.draw_button()
     pygame.display.flip()
+
+# copyright ErykTavares © 2020-2021
